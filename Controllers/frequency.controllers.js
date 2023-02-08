@@ -1,5 +1,25 @@
 const dosomething = (req, res) => {
-  console.log(req.query );
+  console.log(`params ------> ${JSON.stringify(req.query, null, 2)}`);
+
+  switch (req.query["group_by"].toLowerCase()) {
+    case "time":
+      console.log("group by time");
+      /*
+      SELECT COUNT * FROM TABLE
+        WHERE 
+          date > start_of_week
+            AND
+          date < end_of_week
+      */
+      break;
+    case "intents":
+      console.log("group by intents");
+      break;
+
+    default:
+      console.log("invalid");
+      break;
+  }
 
   /*
   req.query -> 
